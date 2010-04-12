@@ -135,10 +135,11 @@ class registration_info_mailer extends Frontend
 	* @param mixed $strTemplate
 	*/
 	public function generateHelpWizard($strContent, $strTemplate)
-	{
+	{          
 		if ($strContent == 'explain')
 		{
 			$this->Import('Database');
+			$this->loadLanguageFile('tl_member');
 			$arrFields = $this->Database->listFields('tl_member');
 			
 			// clean the array, not nessesary but maybe i add a filter later
@@ -146,7 +147,7 @@ class registration_info_mailer extends Frontend
 				$arrFieldsClean[] =  $value['name'];
 			
 			foreach ($arrFieldsClean as $v)
-				$GLOBALS['TL_LANG']['XPL']['rim_helper'][] = array('{{rim::' . $v . '}}', $v);
+				$GLOBALS['TL_LANG']['XPL']['rim_helper'][] = array('{{rim::' . $v . '}}', '<strong>' . $GLOBALS['TL_LANG']['tl_member'][$v][0] . '</strong> - ' . $GLOBALS['TL_LANG']['tl_member'][$v][1]);
 		}
 	}
 

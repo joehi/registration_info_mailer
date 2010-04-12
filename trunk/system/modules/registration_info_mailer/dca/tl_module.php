@@ -99,6 +99,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailtext'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_mailtext'],
    	'exclude'		=> true,
 	'inputType'		=> 'textarea',
+	'explanation'	=> 'rim_helper',
 	'eval'			=> array('helpwizard' => true, 'mandatory' => true)
 );
 
