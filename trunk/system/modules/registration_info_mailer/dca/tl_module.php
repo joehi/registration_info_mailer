@@ -1,19 +1,21 @@
 <?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
 
 /**
- * TYPOlight Open Source CMS
+ * Contao Open Source CMS
  * Copyright (C) 2005-2010 Leo Feyer
+ *
+ * Formerly known as TYPOlight Open Source CMS.
  *
  * This program is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation, either
  * version 3 of the License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this program. If not, please visit the Free
  * Software Foundation website at <http://www.gnu.org/licenses/>.
@@ -23,11 +25,10 @@
  * @author     Leo Unglaub <leo@leo-unglaub.net>
  * @package    registration_info_mailer
  * @license    LGPL
+ * @filesource
  */
 
-
 $GLOBALS['TL_DCA']['tl_module']['palettes']['registration'] = str_replace('{email_legend:hide}', '{rim_legend:hide},rim_active,rim_mail_from,rim_mail_from_name,rim_subject,rim_mailto,rim_mailto_cc,rim_mailto_bcc,rim_mailtext;{email_legend:hide}', $GLOBALS['TL_DCA']['tl_module']['palettes']['registration']);
-
 
 /**
  * Add fields to tl_settings
@@ -125,10 +126,10 @@ class rim_helper extends Frontend
 		$arrBuffer = array_diff(array_unique(array_map(trim, explode(',', $varValue))), array(''));
 		sort($arrBuffer);
 		$strBuffer = implode(',', $arrBuffer);
-		
+
 		return $strBuffer;
 	}
-	
+
 	/**
 	* format the result to a better readable version
 	* 
@@ -140,5 +141,4 @@ class rim_helper extends Frontend
 		return str_replace(',', ', ', $varValue);
 	}
 }
-
 ?>
