@@ -31,7 +31,8 @@
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['createNewUser'][]		= array('registration_info_mailer', 'sendTheMail');
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][]	= array('registration_info_mailer', 'replaceRegistrationVars');
+$GLOBALS['TL_HOOKS']['createNewUser'][]		= array('registration_info_mailer', 'sendRegistrationMail');
+$GLOBALS['TL_HOOKS']['activateAccount'][]	= array('registration_info_mailer', 'sendActivationMail');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][]	= array('registration_info_mailer', 'replaceRimInsertTags');
 $GLOBALS['TL_HOOKS']['loadLanguageFile'][]	= array('registration_info_mailer', 'generateHelpWizard');
 ?>
