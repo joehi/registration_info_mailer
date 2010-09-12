@@ -28,29 +28,29 @@
  * @filesource
  */
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['registration'] = str_replace('{email_legend:hide}', '{rim_legend:hide},rim_active,rim_act_active;{email_legend:hide}', $GLOBALS['TL_DCA']['tl_module']['palettes']['registration']);
+$GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace('{chmod_legend:hide}', '{rim_legend:hide},rim_active,rim_act_active;{chmod_legend:hide}', $GLOBALS['TL_DCA']['tl_page']['palettes']['root']);
 
 // register the sub palettes, don't forget the palettes ;)
-$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'rim_active';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'rim_act_active';
+$GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'rim_active';
+$GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'rim_act_active';
 
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['rim_active'] = 'rim_mail_from,rim_do_syslog,rim_mail_from_name,rim_subject,rim_mailto,rim_mailto_cc,rim_mailto_bcc,rim_mailtext';
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['rim_act_active'] = 'rim_act_mail_from,rim_act_do_syslog,rim_act_mail_from_name,rim_act_subject,rim_act_mailto,rim_act_mailto_cc,rim_act_mailto_bcc,rim_act_mailtext';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['rim_active'] = 'rim_mail_from,rim_do_syslog,rim_mail_from_name,rim_subject,rim_mailto,rim_mailto_cc,rim_mailto_bcc,rim_mailtext';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['rim_act_active'] = 'rim_act_mail_from,rim_act_do_syslog,rim_act_mail_from_name,rim_act_subject,rim_act_mailto,rim_act_mailto_cc,rim_act_mailto_bcc,rim_act_mailtext';
 
 /**
  * Add all global rim_ fields
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_active'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_active'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_active'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_active'],
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
 	'eval'			=> array('submitOnChange'=>true, 'tl_style'=>'clr')
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_active'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_active'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_act_active'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_active'],
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
 	'eval'			=> array('submitOnChange'=>true, 'tl_style'=>'clr')
@@ -60,17 +60,17 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_active'] = array
 /**
  * Add all fields for the registration notification
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_do_syslog'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_do_syslog'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_do_syslog'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_do_syslog'],
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
-	'eval'			=> array ('tl_class' => 'w50')
+	'eval'			=> array ('tl_class' => 'w50 m12')
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailto'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailto'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_mailto'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_mailto'],
 	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
@@ -78,9 +78,9 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailto'] = array
 	'eval'			=> array ('style' => 'height:60px;', 'tl_class' => 'clr', 'mandatory' => true)
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailto_cc'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailto_cc'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_mailto_cc'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_mailto_cc'],
 	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
@@ -88,9 +88,9 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailto_cc'] = array
 	'eval'			=> array ('style' => 'height:60px;')
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailto_bcc'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailto_bcc'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_mailto_bcc'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_mailto_bcc'],
    	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
@@ -98,33 +98,33 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailto_bcc'] = array
 	'eval'			=> array ('style' => 'height:60px;')
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_mail_from'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_mail_from'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_mail_from'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_mail_from'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
 	'eval'			=> array('tl_class' => 'w50', 'maxlength' => 255, 'rgxp' => 'email', 'mandatory' => true)
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_mail_from_name'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_mail_from_name'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_mail_from_name'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_mail_from_name'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
 	'eval'			=> array('tl_class'=>'w50', 'maxlength' => 255, 'mandatory' => true)
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_subject'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_subject'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_subject'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_subject'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
 	'eval'			=> array('tl_class'=>'w50', 'maxlength' => 255, 'mandatory' => true)
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailtext'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailtext'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_mailtext'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_mailtext'],
    	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'explanation'	=> 'rim_helper',
@@ -135,17 +135,17 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailtext'] = array
 /**
  * Add all fields for the activation notification
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_do_syslog'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_do_syslog'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_act_do_syslog'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_do_syslog'],
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
-	'eval'			=> array ('tl_class' => 'w50 clr')
+	'eval'			=> array ('tl_class' => 'w50 m12')
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mailto'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailto'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_act_mailto'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_mailto'],
 	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
@@ -153,9 +153,9 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mailto'] = array
 	'eval'			=> array ('style' => 'height:60px;', 'tl_class' => 'clr', 'mandatory' => true)
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mailto_cc'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailto_cc'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_act_mailto_cc'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_mailto_cc'],
 	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
@@ -163,9 +163,9 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mailto_cc'] = array
 	'eval'			=> array ('style' => 'height:60px;')
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mailto_bcc'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailto_bcc'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_act_mailto_bcc'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_mailto_bcc'],
    	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
@@ -173,33 +173,33 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mailto_bcc'] = array
 	'eval'			=> array ('style' => 'height:60px;')
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mail_from'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mail_from'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_act_mail_from'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_mail_from'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
 	'eval'			=> array('tl_class' => 'w50', 'maxlength' => 255, 'rgxp' => 'email', 'mandatory' => true)
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mail_from_name'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mail_from_name'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_act_mail_from_name'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_mail_from_name'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
 	'eval'			=> array('tl_class' => 'w50', 'maxlength' => 255, 'mandatory' => true)
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_subject'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_subject'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_act_subject'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_subject'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
 	'eval'			=> array('tl_class' => 'w50', 'maxlength' => 255, 'mandatory' => true)
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mailtext'] = array
+$GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailtext'] = array
 (
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['rim_act_mailtext'],
+	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_mailtext'],
    	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'explanation'	=> 'rim_helper',
@@ -209,12 +209,13 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mailtext'] = array
 
 /**
  * Class rim_helper: provide some methods to do some work on the DCA
+ * 
  * PHP version 5
  * @copyright  LU-Hosting 2010
  * @author     Leo Unglaub <leo@leo-unglaub.net>
  * @package    registration_info_mailer
  */
-class rim_helper extends Frontend
+class rim_helper extends Controller
 {
 	/**
 	 * clean the input, remove empty entries, trim the values, remove doublicates

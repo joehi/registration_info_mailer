@@ -9,9 +9,9 @@
 
 
 -- 
--- Table `tl_module`
+-- Table `tl_page`
 -- 
-CREATE TABLE `tl_module` (
+CREATE TABLE `tl_page` (
   `rim_active` char(1) NOT NULL default '',
   `rim_do_syslog` char(1) NOT NULL default '',
   `rim_act_active` char(1) NOT NULL default '',
