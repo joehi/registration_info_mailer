@@ -65,7 +65,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_do_syslog'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_do_syslog'],
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
-	'eval'			=> array ('tl_class' => 'w50 m12')
+	'eval'			=> array ('tl_class'=>'w50 m12')
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailto'] = array
@@ -75,7 +75,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailto'] = array
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
 	'load_callback'	=> array(array('rim_helper', 'load_sorter')),
-	'eval'			=> array ('style' => 'height:60px;', 'tl_class' => 'clr', 'mandatory' => true)
+	'eval'			=> array ('style'=>'height:60px;', 'tl_class'=>'clr', 'mandatory'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailto_cc'] = array
@@ -85,7 +85,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailto_cc'] = array
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
 	'load_callback'	=> array(array('rim_helper', 'load_sorter')),
-	'eval'			=> array ('style' => 'height:60px;')
+	'eval'			=> array ('style'=>'height:60px;')
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailto_bcc'] = array
@@ -95,7 +95,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailto_bcc'] = array
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
 	'load_callback'	=> array(array('rim_helper', 'load_sorter')),
-	'eval'			=> array ('style' => 'height:60px;')
+	'eval'			=> array ('style'=>'height:60px;')
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mail_from'] = array
@@ -103,7 +103,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mail_from'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_mail_from'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
-	'eval'			=> array('tl_class' => 'w50', 'maxlength' => 255, 'rgxp' => 'email', 'mandatory' => true)
+	'eval'			=> array('tl_class'=>'w50', 'maxlength'=>255, 'rgxp'=>'email', 'mandatory'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mail_from_name'] = array
@@ -111,7 +111,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mail_from_name'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_mail_from_name'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
-	'eval'			=> array('tl_class'=>'w50', 'maxlength' => 255, 'mandatory' => true)
+	'eval'			=> array('tl_class'=>'w50', 'maxlength'=>255, 'mandatory'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_subject'] = array
@@ -119,7 +119,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_subject'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_subject'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
-	'eval'			=> array('tl_class'=>'w50', 'maxlength' => 255, 'mandatory' => true)
+	'eval'			=> array('tl_class'=>'w50', 'maxlength'=>255, 'mandatory'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailtext'] = array
@@ -128,7 +128,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailtext'] = array
    	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'explanation'	=> 'rim_helper',
-	'eval'			=> array('helpwizard' => true, 'mandatory' => true)
+	'eval'			=> array('helpwizard'=>true, 'mandatory'=>true, 'preserveTags'=>true, 'allowHtml'=>true)
 );
 
 
@@ -140,7 +140,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_do_syslog'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_do_syslog'],
 	'exclude'		=> true,
 	'inputType'		=> 'checkbox',
-	'eval'			=> array ('tl_class' => 'w50 m12')
+	'eval'			=> array ('tl_class'=>'w50 m12')
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailto'] = array
@@ -150,7 +150,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailto'] = array
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
 	'load_callback'	=> array(array('rim_helper', 'load_sorter')),
-	'eval'			=> array ('style' => 'height:60px;', 'tl_class' => 'clr', 'mandatory' => true)
+	'eval'			=> array ('style'=>'height:60px;', 'tl_class'=>'clr', 'mandatory'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailto_cc'] = array
@@ -160,7 +160,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailto_cc'] = array
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
 	'load_callback'	=> array(array('rim_helper', 'load_sorter')),
-	'eval'			=> array ('style' => 'height:60px;')
+	'eval'			=> array ('style'=>'height:60px;')
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailto_bcc'] = array
@@ -170,7 +170,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailto_bcc'] = array
 	'inputType'		=> 'textarea',
 	'save_callback'	=> array(array('rim_helper', 'save_sorter')),
 	'load_callback'	=> array(array('rim_helper', 'load_sorter')),
-	'eval'			=> array ('style' => 'height:60px;')
+	'eval'			=> array ('style'=>'height:60px;')
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mail_from'] = array
@@ -178,7 +178,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mail_from'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_mail_from'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
-	'eval'			=> array('tl_class' => 'w50', 'maxlength' => 255, 'rgxp' => 'email', 'mandatory' => true)
+	'eval'			=> array('tl_class'=>'w50', 'maxlength'=>255, 'rgxp'=>'email', 'mandatory'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mail_from_name'] = array
@@ -186,7 +186,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mail_from_name'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_mail_from_name'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
-	'eval'			=> array('tl_class' => 'w50', 'maxlength' => 255, 'mandatory' => true)
+	'eval'			=> array('tl_class'=>'w50', 'maxlength'=>255, 'mandatory'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_subject'] = array
@@ -194,7 +194,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_subject'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_subject'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
-	'eval'			=> array('tl_class' => 'w50', 'maxlength' => 255, 'mandatory' => true)
+	'eval'			=> array('tl_class'=>'w50', 'maxlength'=>255, 'mandatory'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailtext'] = array
@@ -203,7 +203,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailtext'] = array
    	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'explanation'	=> 'rim_helper',
-	'eval'			=> array('mandatory' => true)
+	'eval'			=> array('mandatory'=>true, 'preserveTags'=>true, 'allowHtml'=>true)
 );
 
 
