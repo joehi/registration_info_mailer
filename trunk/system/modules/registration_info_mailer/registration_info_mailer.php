@@ -122,6 +122,15 @@ class registration_info_mailer extends Frontend
 		// check if the registration mail sould be send
 		if ($objDB->rim_act_active == 1)
 		{
+			// force all user options we have to the rim insert tags
+			foreach ($this->Database->getFieldNames('tl_member') as $v)
+			{
+				// don't use empty here
+				if ($objUser->$v != '')
+				{
+					self::$arrUserOptions[$v] = $objUser->$v;
+				}
+			}
 
 			// check if we have all needet data
 			if (!strlen($objDB->rim_act_mail_from) || !strlen($objDB->rim_act_mail_from_name) || !strlen($objDB->rim_act_subject) || !strlen($objDB->rim_act_mailto) || !strlen($objDB->rim_act_mailtext))

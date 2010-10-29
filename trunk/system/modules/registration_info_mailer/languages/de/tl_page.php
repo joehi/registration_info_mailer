@@ -39,7 +39,7 @@ $GLOBALS['TL_LANG']['tl_page']['rim_subject']				= array('Betreff', 'Betreff des
 $GLOBALS['TL_LANG']['tl_page']['rim_mailto']				= array('Empfänger', 'Hier können Sie eine Liste beliebig vieler Empfänger der Benachichtigung angeben. BSP: office@foobar.com, private@foobar.com');
 $GLOBALS['TL_LANG']['tl_page']['rim_mailto_cc']				= array('CC Empfänger', 'Hier können Sie eine Liste beliebig vieler CC-Empfänger angeben. BSP: office@foobar.com, private@foobar.com');
 $GLOBALS['TL_LANG']['tl_page']['rim_mailto_bcc']			= array('BCC Empfänger', 'Hier können Sie eine Liste beliebig vieler BCC-Empfänger angeben. BSP: office@foobar.com ,private@foobar.com');
-$GLOBALS['TL_LANG']['tl_page']['rim_mailtext']				= array('Mailtext', 'Dieser Text wird per E-Mail verschickt. Es sind alle Standard-Insert-Tags verfügbar und alle verfügbaren Usereigenschaften welche bei der Registrierung ausgefüllt wurden. Diese sind über die RIM:: Insert Tags Verfügbar. Siehe dazu den Hilfe Wizard.');
+$GLOBALS['TL_LANG']['tl_page']['rim_mailtext']				= array('Mailtext', 'Dieser Text wird per E-Mail verschickt. Es sind alle Standard-Insert-Tags verfügbar und alle verfügbaren Usereigenschaften welche bei der Registrierung ausgefüllt wurden. Diese sind über die rim:: Insert Tags Verfügbar. Siehe dazu den Hilfe Wizard.');
 
 /*
  * activation mails
@@ -52,7 +52,7 @@ $GLOBALS['TL_LANG']['tl_page']['rim_act_subject']			= array('Betreff', 'Betreff 
 $GLOBALS['TL_LANG']['tl_page']['rim_act_mailto']			= array('Empfänger', 'Hier können Sie eine Liste beliebig vieler Empfänger der Benachichtigung angeben. BSP: office@foobar.com, private@foobar.com');
 $GLOBALS['TL_LANG']['tl_page']['rim_act_mailto_cc']			= array('CC Empfänger', 'Hier können Sie eine Liste beliebig vieler CC-Empfänger angeben. BSP: office@foobar.com ,private@foobar.com');
 $GLOBALS['TL_LANG']['tl_page']['rim_act_mailto_bcc']		= array('BCC Empfänger', 'Hier können Sie eine Liste beliebig vieler BCC-Empfänger angeben. BSP: office@foobar.com, private@foobar.com');
-$GLOBALS['TL_LANG']['tl_page']['rim_act_mailtext']			= array('Mailtext', 'Dieser Text wird per E-Mail verschickt. Es sind alle Standard-Insert-Tags verfügbar.');
+$GLOBALS['TL_LANG']['tl_page']['rim_act_mailtext']			= array('Mailtext', 'Dieser Text wird per E-Mail verschickt. Es sind alle Standard-Insert-Tags verfügbar. Die Eigenschaften des Benutzers sind in den rim:: Insert Tags verfügbar. Diese dafür den Hilfe Wizard.');
 
 /*
  * legend

@@ -39,7 +39,7 @@ $GLOBALS['TL_LANG']['tl_page']['rim_subject']				= array('subject', 'subject of 
 $GLOBALS['TL_LANG']['tl_page']['rim_mailto']				= array('recipient', 'place a list of recipients here. eg: office@foobar.com, private@foobar.com');
 $GLOBALS['TL_LANG']['tl_page']['rim_mailto_cc']				= array('CC recipients', 'place here a list of CC-recipients. eg: office@foobar.com, private@foobar.com');
 $GLOBALS['TL_LANG']['tl_page']['rim_mailto_bcc']			= array('BCC recipients', 'place here a list of BCC-recipients eg: office@foobar.com ,private@foobar.com');
-$GLOBALS['TL_LANG']['tl_page']['rim_mailtext']				= array('mailtext', 'Place mailtext here. There are all standard-insert-tags and all userattributes avalible. These are via RIM:: Insert Tags avalible. See help wizzard for help.');
+$GLOBALS['TL_LANG']['tl_page']['rim_mailtext']				= array('mailtext', 'Place mailtext here. There are all standard-insert-tags and all user attributes avalible. There are via rim:: insert tags avalible. See the help wizzard for a list and examples.');
 
 /*
  * activation mails
@@ -52,7 +52,7 @@ $GLOBALS['TL_LANG']['tl_page']['rim_act_subject']			= array('subject', 'subject 
 $GLOBALS['TL_LANG']['tl_page']['rim_act_mailto']			= array('recipient', 'place a list of recipients here. eg: office@foobar.com, private@foobar.com');
 $GLOBALS['TL_LANG']['tl_page']['rim_act_mailto_cc']			= array('CC recipients', 'place here a list of CC-recipients. eg: office@foobar.com ,private@foobar.com');
 $GLOBALS['TL_LANG']['tl_page']['rim_act_mailto_bcc']		= array('BCC recipients', 'place here a list of BCC-recipients. eg: office@foobar.com, private@foobar.com');
-$GLOBALS['TL_LANG']['tl_page']['rim_act_mailtext']			= array('mailtext', 'Place mailtext here. There are all standard-insert-tags avalible.');
+$GLOBALS['TL_LANG']['tl_page']['rim_act_mailtext']			= array('mailtext', 'Place mailtext here. There are all default insert tags avalible. the user attributes are stored in the rim:: intert tags. See the help wizzard for a list and examples.');
 
 /*
  * legend
