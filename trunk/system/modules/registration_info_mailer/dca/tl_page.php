@@ -203,7 +203,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailtext'] = array
    	'exclude'		=> true,
 	'inputType'		=> 'textarea',
 	'explanation'	=> 'rim_helper',
-	'eval'			=> array('mandatory'=>true, 'preserveTags'=>true, 'allowHtml'=>true)
+	'eval'			=> array('helpwizard'=>true, 'mandatory'=>true, 'preserveTags'=>true, 'allowHtml'=>true)
 );
 
 

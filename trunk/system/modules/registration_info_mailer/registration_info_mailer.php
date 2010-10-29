@@ -166,8 +166,6 @@ class registration_info_mailer extends Frontend
 
 	/**
 	 * replace the insert tags {{rim::%useroption%}} with the $arrData from the registration
-	 * Notice:	only the registration hook needs own insert tags, the activation hook
-	 *			can use the database result
 	 *
 	 * @param string $strTag
 	 * @return mixed
@@ -192,8 +190,8 @@ class registration_info_mailer extends Frontend
 	/**
 	 * generate the "Help Wizard" with the values from tl_member
 	 *
-	 * @param <string> $strContent
-	 * @param <string> $strTemplate
+	 * @param string $strContent
+	 * @param string $strTemplate
 	 */
 	public function generateHelpWizard($strContent, $strTemplate)
 	{          
