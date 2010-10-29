@@ -119,7 +119,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_subject'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_subject'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
-	'eval'			=> array('tl_class'=>'w50', 'maxlength'=>255, 'mandatory'=>true)
+	'eval'			=> array('tl_class'=>'w50', 'maxlength'=>255, 'mandatory'=>true, 'preserveTags'=>true, 'allowHtml'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_mailtext'] = array
@@ -194,7 +194,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_subject'] = array
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['rim_act_subject'],
 	'exclude'		=> true,
 	'inputType'		=> 'text',
-	'eval'			=> array('tl_class'=>'w50', 'maxlength'=>255, 'mandatory'=>true)
+	'eval'			=> array('tl_class'=>'w50', 'maxlength'=>255, 'mandatory'=>true, 'preserveTags'=>true, 'allowHtml'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailtext'] = array
