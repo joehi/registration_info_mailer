@@ -208,10 +208,11 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['rim_act_mailtext'] = array
 
 
 /**
- * Class rim_helper: provide some methods to do some work on the DCA
+ * Class rim_helper
+ * provide some methods to do some work on the DCA
  * 
  * PHP version 5
- * @copyright  LU-Hosting 2010
+ * @copyright  Leo Unglaub 2011
  * @author     Leo Unglaub <leo@leo-unglaub.net>
  * @package    registration_info_mailer
  */
