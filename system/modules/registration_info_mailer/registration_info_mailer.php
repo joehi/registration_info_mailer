@@ -55,7 +55,6 @@ class registration_info_mailer extends Controller
 	{
 		parent::__construct();
 		$this->import('Database');
-		$this->getUserOptions();
 	}
 	
 	/**
@@ -111,7 +110,8 @@ class registration_info_mailer extends Controller
 		// check if the registration mail sould be send
 		if ($objModule->rim_act_active == 1)
 		{
-
+			$this->getUserOptions($objUser);
+			
 			// check if we have all needet data
 			if (!strlen($objModule->rim_act_mailto) || !strlen($objModule->rim_act_mailtemplate))
 			{
@@ -165,6 +165,8 @@ class registration_info_mailer extends Controller
 		//send the mail is checkbox is set
 		if ($objUser->rim_send_mail)
 		{
+			$this->getUserOptions($objUser);
+			
 			$intTemplateId = ($objUser->login) ? $objUser->rim_activate_mailtemplate : $objUser->rim_deactivate_mailtemplate;
 			$objMail = new EmailTemplate($intTemplateId, $objUser->language);
 			$objMail->send($dc->activeRecord->email);
@@ -209,7 +211,7 @@ class registration_info_mailer extends Controller
 	}
 	
 	
-	protected function getUserOptions()
+	protected function getUserOptions($objUser)
 	{
 		// force all user options we have to the rim insert tags
 		foreach ($this->Database->getFieldNames('tl_member') as $v)
