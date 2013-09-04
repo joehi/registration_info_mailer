@@ -19,7 +19,7 @@
 	],
 	"require":{
 		"php":">=5.3",
-		"contao/core":"contao/core": ">=2.10,<3"
+		"contao/core":"contao/core": ">=2.10,<4"
 	},
 	"autoload":{
 		"classmap":["system/"]
