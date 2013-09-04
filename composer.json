@@ -1,0 +1,37 @@
+{
+	"name":"davidmaack/contao_registration_info_mailer",
+	"description":"Send a customized email if an new user register or activate an account or the login flag of an account has changed.",
+	"keywords":["contao", "registration", "registration_info_mailer"],
+	"type":"contao-module",
+	"license":"LGPL-3.0+",
+	"authors":[
+			{
+			"name":"David Maack",
+			"email":"david.maack@arcor.de",
+			"role":"Developer"
+		},
+		{
+			"name":"Leo Unglaub",
+			"email":"leo@leo-unglaub.net",
+			"homepage":"http://www.leo-unglaub.net",
+			"role":"Developer"
+		}
+	],
+	"require":{
+		"php":">=5.3",
+		"contao/core":"contao/core": ">=2.10,<3"
+	},
+	"autoload":{
+		"classmap":["system/"]
+	},
+	"replace": {
+		"contao-legacy/registration_info_mailer": "*"
+	},
+	"extra":{
+		"contao": {
+			"sources":{
+				"system/modules/registration_info_mailer": "system/modules/registration_info_mailer"
+			}
+		}
+	}
+}
