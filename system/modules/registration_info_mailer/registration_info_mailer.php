@@ -34,10 +34,11 @@
  *
  * @copyright	Leo Unglaub 2011
  * @author		Leo Unglaub <leo@leo-unglaub.net>
+ * @author     David Maack <david.maack@arcor.de>
  * @package		registration_info_mailer
  * @license		LGPL
  */
-class registration_info_mailer extends Frontend
+class registration_info_mailer extends Controller
 {
 	/**
 	 * must be static because the loadLanguageFile hook call the method
@@ -48,57 +49,52 @@ class registration_info_mailer extends Frontend
 	protected static $arrUserOptions = array();
 
 	/**
+	 * Load the database object
+	 */
+	protected function __construct()
+	{
+		parent::__construct();
+		$this->import('Database');
+		$this->getUserOptions();
+	}
+	
+	/**
 	 * send an email if a new user registrated on the contao installation
 	 *
 	 * @param int $intId
 	 * @param array $arrData
 	 * @return none
 	 */
-	public function sendRegistrationMail($intId, $arrData)
+	public function sendRegistrationMail($intId, $arrData, $objModule)
 	{
-		$this->import('Database');
+
 		global $objPage;
 
-		// use the wildcard query because there is a cache result
-		$objDB = $this->Database->prepare('SELECT * FROM tl_page WHERE id=?')
-								->limit(1)
-								->execute($objPage->rootId);
 		
 		// check if the registration mail sould be send
-		if ($objDB->rim_active == 1)
+		if ($objModule->rim_active == 1)
 		{
 			// store the registration data
 			self::$arrUserOptions = $arrData;
 
 			// check if we have all needet data
-			if (!strlen($objDB->rim_mail_from) || !strlen($objDB->rim_mail_from_name) || !strlen($objDB->rim_subject) || !strlen($objDB->rim_mailto) || !strlen($objDB->rim_mailtext))
+			if (!strlen($objModule->rim_mailto) || !strlen($objModule->rim_mailtemplate))
 			{
 				$this->log('RIM: failed to send the registration mail. The module needs more email informations. Please check the module configuration.', 'registration_info_mailer sendRegistrationMail()', 'ERROR');
 				return;
 			}
-
-			$objMail = new Email();
-			$objMail->from = $objDB->rim_mail_from;
-			$objMail->fromName = $objDB->rim_mail_from_name;
-			$objMail->subject = $this->replaceInsertTags($objDB->rim_subject);
-			$objMail->text = $this->replaceInsertTags($objDB->rim_mailtext);
-
-			if (strlen($objDB->rim_mailto_cc))
-				$objMail->sendCc(explode(',', $objDB->rim_mailto_cc));
-
-			if (strlen($objDB->rim_mailto_bcc))
-				$objMail->sendBcc(explode(',', $objDB->rim_mailto_bcc));
-
-			$objMail->sendTo(explode(',', $objDB->rim_mailto));
+			
+			$objMail = new EmailTemplate($objModule->rim_mailtemplate, $arrData['language']);
+			$objMail->send($objModule->rim_mailto);
 
 			// log to tl_log if the user set the option
-			if ($objDB->rim_do_syslog == 1)
+			if ($objModule->rim_do_syslog == 1)
 			{
 				$this->log('RIM: a registration info mail has been send. Check your email.log for more informations.', 'registration_info_mailer sendRegistrationMail()', 'GENERAL');
 			}
 
 			// done :) lets cleanup and get some food, maybe a big pizza
-			unset($objMail, $objDB);
+			unset($objMail);
 		}
 	}
 
@@ -107,59 +103,32 @@ class registration_info_mailer extends Frontend
 	 * send an email if a user account is activated
 	 *
 	 * @global object $objPage
-	 * @param Database_Result $objUser
+	 * @param $objUser
 	 */
-	public function sendActivationMail(Database_Result $objUser)
+	public function sendActivationMail($objUser, $objModule)
 	{
-		$this->import('Database');
-		global $objPage;
-
-		// use the wildcard query because there is a cache result
-		$objDB = $this->Database->prepare('SELECT * FROM tl_page WHERE id=?')
-								->limit(1)
-								->execute($objPage->rootId);
 
 		// check if the registration mail sould be send
-		if ($objDB->rim_act_active == 1)
+		if ($objModule->rim_act_active == 1)
 		{
-			// force all user options we have to the rim insert tags
-			foreach ($this->Database->getFieldNames('tl_member') as $v)
-			{
-				// don't use empty here
-				if ($objUser->$v != '')
-				{
-					self::$arrUserOptions[$v] = $objUser->$v;
-				}
-			}
 
 			// check if we have all needet data
-			if (!strlen($objDB->rim_act_mail_from) || !strlen($objDB->rim_act_mail_from_name) || !strlen($objDB->rim_act_subject) || !strlen($objDB->rim_act_mailto) || !strlen($objDB->rim_act_mailtext))
+			if (!strlen($objModule->rim_act_mailto) || !strlen($objModule->rim_act_mailtemplate))
 			{
 				$this->log('RIM: failed to send the activation mail. The module needs more email informations. Please check the module configuration.', 'registration_info_mailer sendActivationMail()', 'ERROR');
 				return;
 			}
 
-			$objMail = new Email();
-			$objMail->from = $objDB->rim_act_mail_from;
-			$objMail->fromName = $objDB->rim_act_mail_from_name;
-			$objMail->subject = $this->replaceInsertTags($objDB->rim_act_subject);
-			$objMail->text = $this->replaceInsertTags($objDB->rim_act_mailtext);
-
-			if (strlen($objDB->rim_act_mailto_cc))
-				$objMail->sendCc(explode(',', $objDB->rim_act_mailto_cc));
-
-			if (strlen($objDB->rim_act_mailto_bcc))
-				$objMail->sendBcc(explode(',', $objDB->rim_act_mailto_bcc));
-
-			$objMail->sendTo(explode(',', $objDB->rim_act_mailto));
+			$objMail = new EmailTemplate($objModule->rim_act_mailtemplate, $arrData['language']);
+			$objMail->send($objModule->rim_act_mailto);
 
 			// log to tl_log if the user set the option
-			if ($objDB->rim_act_do_syslog == 1)
+			if ($objModule->rim_act_do_syslog == 1)
 			{
 				$this->log('RIM: An activation info mail for the user ' . $objUser->id . ' has been send.', 'registration_info_mailer sendActivationMail()', 'GENERAL');
 			}
 
-			unset($objMail, $objDB);
+			unset($objMail);
 		}
 	}
 
@@ -185,7 +154,23 @@ class registration_info_mailer extends Frontend
 
 		return false;
 	}
+		
+	/**
+	 * send the mail
+	 */
+    public function sendMemberMail($dc) {
+	
+		$objUser = $this->Database->prepare('SELECT * FROM tl_member WHERE id = ?')->executeUncached($dc->activeRecord->id);
+		
+		//send the mail is checkbox is set
+		if ($objUser->rim_send_mail)
+		{
+			$intTemplateId = ($objUser->login) ? $objUser->rim_activate_mailtemplate : $objUser->rim_deactivate_mailtemplate;
+			$objMail = new EmailTemplate($intTemplateId, $objUser->language);
+			$objMail->send($dc->activeRecord->email);
 
+		}
+    }
 
 	/**
 	 * generate the "Help Wizard" with the values from tl_member
@@ -219,6 +204,20 @@ class registration_info_mailer extends Frontend
 					'{{rim::' . $v . '}}',
 					'<strong>' . $GLOBALS['TL_LANG']['tl_member'][$v][0] . '</strong> - ' . $GLOBALS['TL_LANG']['tl_member'][$v][1]
 				);
+			}
+		}
+	}
+	
+	
+	protected function getUserOptions()
+	{
+		// force all user options we have to the rim insert tags
+		foreach ($this->Database->getFieldNames('tl_member') as $v)
+		{
+			// don't use empty here
+			if ($objUser->$v != '')
+			{
+				self::$arrUserOptions[$v] = $objUser->$v;
 			}
 		}
 	}

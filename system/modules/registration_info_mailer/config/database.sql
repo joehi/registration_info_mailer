@@ -9,25 +9,25 @@
 
 
 -- 
--- Table `tl_page`
+-- Table `tl_module`
 -- 
-CREATE TABLE `tl_page` (
+CREATE TABLE `tl_module` (
   `rim_active` char(1) NOT NULL default '',
+  `rim_mailtemplate` int(5) unsigned NOT NULL default '0',
   `rim_do_syslog` char(1) NOT NULL default '',
   `rim_act_active` char(1) NOT NULL default '',
+  `rim_act_mailtemplate` int(5) unsigned NOT NULL default '0',
   `rim_act_do_syslog` char(1) NOT NULL default '',
-  `rim_mail_from` varchar(255) NOT NULL default '',
-  `rim_mail_from_name` varchar(255) NOT NULL default '',
-  `rim_subject` varchar(255) NOT NULL default '',
   `rim_mailto` blob NULL,
-  `rim_mailto_cc` blob NULL,
-  `rim_mailto_bcc` blob NULL,
-  `rim_mailtext` blob NULL,
-  `rim_act_mail_from` varchar(255) NOT NULL default '',
-  `rim_act_mail_from_name` varchar(255) NOT NULL default '',
-  `rim_act_subject` varchar(255) NOT NULL default '',
   `rim_act_mailto` blob NULL,
-  `rim_act_mailto_cc` blob NULL,
-  `rim_act_mailto_bcc` blob NULL,
-  `rim_act_mailtext` blob NULL,
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- Table `tl_member`
+-- 
+
+CREATE TABLE `tl_member` (
+  `rim_send_mail` char(1) NOT NULL default '',
+  `rim_deactivate_mailtemplate` int(5) unsigned NOT NULL default '0',
+  `rim_activate_mailtemplate` int(5) unsigned NOT NULL default '0',
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
