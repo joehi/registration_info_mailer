@@ -46,6 +46,7 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['rim_activate_mailtemplate'] = array(
 			'inputType'			=> 'select',
 			'options_callback'	=> array('RimHelper', 'getMailTeplates'),
 			'explanation'		=> 'RimHelper',
+            'load_callback'     => array(array('RimHelper', 'setDefaultTemplate')),
 			'eval'				=> array('helpwizard'=>true, 'tl_class'=>'w50')
 );
 
@@ -55,6 +56,7 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['rim_deactivate_mailtemplate'] = array
 			'inputType'			=> 'select',
 			'options_callback'	=> array('RimHelper', 'getMailTeplates'),
 			'explanation'		=> 'RimHelper',
+            'load_callback'     => array(array('RimHelper', 'setDefaultTemplate')),
 			'eval'				=> array('helpwizard'=>true, 'tl_class'=>'w50')
 );
 

@@ -42,6 +42,19 @@ class RimHelper extends Backend
 	}
 	
 	/**
+     * Load the default value from the settings, if no value is set
+     * @param type $strValue
+     * @param type $dc
+     * @return type
+     */
+    public function setDefaultTemplate($strValue, $dc) {
+        if ($strValue == 0 && $GLOBALS['TL_CONFIG'][$dc->field . '_default']) {
+            return $GLOBALS['TL_CONFIG'][$dc->field . '_default'];
+        }
+        return $strValue;
+    }    
+    
+	/**
 	 * get all available mail tamplates
 	 */
 	public function getMailTeplates()

@@ -33,16 +33,16 @@
  * registration mails
  */
 $GLOBALS['TL_LANG']['tl_module']['rim_active']				= array('activate registristration message', 'click here if you want to activate sending of registration information.');
-$GLOBALS['TL_LANG']['tl_module']['rim_mailtemplate']				= array('mailtemplate', 'please choose the template for this mail. There are all standard-insert-tags available. All user attributes are avalible via rim:: insert tage. See the help wizzard for al list and examples.');
-$GLOBALS['TL_LANG']['tl_module']['rim_do_syslog']				= array('activate logging', 'activatin loggs all mails to syslog.');
+$GLOBALS['TL_LANG']['tl_module']['rim_mailtemplate']		= array('mailtemplate', 'please choose the template for this mail. There are all standard-insert-tags available. All user attributes are avalible via rim:: insert tage. See the help wizzard for al list and examples.');
+$GLOBALS['TL_LANG']['tl_module']['rim_do_syslog']			= array('activate logging', 'activatin loggs all mails to syslog.');
 $GLOBALS['TL_LANG']['tl_module']['rim_mailto']				= array('recipient', 'place a list of recipients here. eg: office@foobar.com, private@foobar.com');
 
 /*
  * activation mails
  */
 $GLOBALS['TL_LANG']['tl_module']['rim_act_active']			= array('activate activity message', 'klick here if you want to activate sending of activity information.');
-$GLOBALS['TL_LANG']['tl_module']['rim_act_mailtemplate']				= array('mailtemplate', 'please choose the template for this mail. There are all standard-insert-tags available. All user attributes are avalible via rim:: insert tage. See the help wizzard for al list and examples.');
-$GLOBALS['TL_LANG']['tl_module']['rim_act_do_syslog']			= array('activate logging', 'activatin loggs all mails to syslog.');
+$GLOBALS['TL_LANG']['tl_module']['rim_act_mailtemplate']	= array('mailtemplate', 'please choose the template for this mail. There are all standard-insert-tags available. All user attributes are avalible via rim:: insert tage. See the help wizzard for al list and examples.');
+$GLOBALS['TL_LANG']['tl_module']['rim_act_do_syslog']		= array('activate logging', 'activatin loggs all mails to syslog.');
 $GLOBALS['TL_LANG']['tl_module']['rim_act_mailto']			= array('recipient', 'place a list of recipients here. eg: office@foobar.com, private@foobar.com');
 
 /*
