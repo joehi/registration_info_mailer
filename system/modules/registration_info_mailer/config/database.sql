@@ -19,7 +19,7 @@ CREATE TABLE `tl_module` (
   `rim_act_mailtemplate` int(5) unsigned NOT NULL default '0',
   `rim_act_do_syslog` char(1) NOT NULL default '',
   `rim_mailto` blob NULL,
-  `rim_act_mailto` blob NULL,
+  `rim_act_mailto` blob NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- 
@@ -29,5 +29,5 @@ CREATE TABLE `tl_module` (
 CREATE TABLE `tl_member` (
   `rim_send_mail` char(1) NOT NULL default '',
   `rim_deactivate_mailtemplate` int(5) unsigned NOT NULL default '0',
-  `rim_activate_mailtemplate` int(5) unsigned NOT NULL default '0',
+  `rim_activate_mailtemplate` int(5) unsigned NOT NULL default '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

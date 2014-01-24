@@ -1,13 +1,14 @@
 {
-	"name":"davidmaack/contao_registration_info_mailer",
+	"name":"menatwork/registration_info_mailer",
 	"description":"Send a customized email if an new user register or activate an account or the login flag of an account has changed.",
 	"keywords":["contao", "registration", "registration_info_mailer"],
 	"type":"contao-module",
 	"license":"LGPL-3.0+",
 	"authors":[
-			{
+		{
 			"name":"David Maack",
 			"email":"david.maack@arcor.de",
+			"homepage":"http://www.men-at-work.de",
 			"role":"Developer"
 		},
 		{
@@ -19,18 +20,19 @@
 	],
 	"require":{
 		"php":">=5.3",
-		"contao/core":"contao/core": ">=2.10,<4"
+		"contao/core":">=2.11,<4",
+		"contao-community-alliance/composer-installer":"*"
 	},
 	"autoload":{
 		"classmap":["system/"]
 	},
-	"replace": {
-		"contao-legacy/registration_info_mailer": "*"
+	"replace":{
+		"contao-legacy/registration_info_mailer":"*"
 	},
 	"extra":{
-		"contao": {
+		"contao":{
 			"sources":{
-				"system/modules/registration_info_mailer": "system/modules/registration_info_mailer"
+				"system/modules/registration_info_mailer":"system/modules/registration_info_mailer"
 			}
 		}
 	}
