@@ -21,7 +21,8 @@
 	"require":{
 		"php":">=5.3",
 		"contao/core":">=2.11,<4",
-		"contao-community-alliance/composer-installer":"*"
+		"contao-community-alliance/composer-installer":"*",
+		"terminal42/notification_center":"~1"
 	},
 	"autoload":{
 		"classmap":["system/"]
