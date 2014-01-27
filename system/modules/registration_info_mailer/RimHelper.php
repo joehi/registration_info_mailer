@@ -55,19 +55,40 @@ class RimHelper extends Backend
     /**
      * get all available mail tamplates
      */
-    public function getMailTeplates()
+    public function getMailTemplates($strType)
     {
         $arrReturn = array();
-        $objTemplates = $this->Database->execute('SELECT * FROM `tl_mail_templates` ORDER BY category ASC , name ASC');
+        $objTemplates = $this->Database->prepare('SELECT * FROM tl_nc_notification WHERE type = ? ORDER BY title ASC')->execute($strType);
         
         while($objTemplates->next())
         {
-            $arrReturn[$objTemplates->category][$objTemplates->id] = $objTemplates->name;
+            $arrReturn[$objTemplates->category][$objTemplates->id] = $objTemplates->title;
         }
         
         return $arrReturn;
     }
     
+ 
+    public function getMemberActivationTemplates($strType)
+    {
+        return $this->getMailTemplates('member_activation_mail');
+    }
+    
+    public function getMemberRegistrationTemplates($strType)
+    {
+        return $this->getMailTemplates('member_registration_mail');
+    }
+    
+    public function getAccountActivationTemplates($strType)
+    {
+        return $this->getMailTemplates('account_activation_mail');
+    }
+    
+    public function getAccountDeactivationTemplates($strType)
+    {
+        return $this->getMailTemplates('account_deactivation_mail');
+    }
+
     /**
      * helper function to uncheck the checkbox
      */

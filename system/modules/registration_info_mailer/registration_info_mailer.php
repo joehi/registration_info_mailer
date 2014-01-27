@@ -63,8 +63,11 @@ class registration_info_mailer extends Controller
                 return;
             }
             
-            $objMail = new EmailTemplate($objModule->rim_mailtemplate, $arrData['language']);
-            $objMail->send($objModule->rim_mailto);
+            $objNotification = NotificationCenter\Model\Notification::findByPk($objModule->rim_mailtemplate);
+            if (null !== $objNotification) {
+                $arrTokens = $arrData;
+                $objNotification->send($arrTokens, $arrData['language']); // Language is optional
+            }
 
             // log to tl_log if the user set the option
             if ($objModule->rim_do_syslog == 1)
@@ -99,8 +102,11 @@ class registration_info_mailer extends Controller
                 return;
             }
 
-            $objMail = new EmailTemplate($objModule->rim_act_mailtemplate, $arrData['language']);
-            $objMail->send($objModule->rim_act_mailto);
+            $objNotification = NotificationCenter\Model\Notification::findByPk($objModule->rim_act_mailtemplate);
+            if (null !== $objNotification) {
+                $arrTokens = self::$arrUserOptions;
+                $objNotification->send($arrTokens, $objUser->language); // Language is optional
+            }
 
             // log to tl_log if the user set the option
             if ($objModule->rim_act_do_syslog == 1)
@@ -148,8 +154,11 @@ class registration_info_mailer extends Controller
             $this->getUserOptions($objUser);
             
             $intTemplateId = ($objUser->login) ? $objUser->rim_activate_mailtemplate : $objUser->rim_deactivate_mailtemplate;
-            $objMail = new EmailTemplate($intTemplateId, $objUser->language);
-            $objMail->send($dc->activeRecord->email);
+            $objNotification = NotificationCenter\Model\Notification::findByPk($intTemplateId);
+            if (null !== $objNotification) {
+                $arrTokens = self::$arrUserOptions;
+                $objNotification->send($arrTokens, $objUser->language); // Language is optional
+            }
 
         }
     }

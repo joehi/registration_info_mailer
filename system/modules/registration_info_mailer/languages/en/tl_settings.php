@@ -9,6 +9,6 @@
  * @filesource
  */
 
-$GLOBALS['TL_LANG']['tl_setttings']['rim_send_mail']                        = array('Send infomail', 'Choose this options if you would like to send an e-mail to the member, informing him about his current activation status.');
-$GLOBALS['TL_LANG']['tl_setttings']['rim_activate_mailtemplate_default']    = array('Default activation mail', 'Choose the default template for the activation mails. All standard insert tags are available. The member attribute can be included by using the rim:: insert tag (see help wizard).');
-$GLOBALS['TL_LANG']['tl_setttings']['rim_deactivate_mailtemplate_default']  = array('Default deactivationmail', 'Choose the default template for the deactivation mails. All standard insert tags are available. The member attribute can be included by using the rim:: insert tag (see help wizard).');
+$GLOBALS['TL_LANG']['tl_setttings']['rim_send_mail']                        = array('Benachrichtigungsmail verschicken', 'Wählen Sie diese Option wenn Sie möchten, dass der Account-Besitzer eine Benachrichtigung über die Statusänderung seines Accounts erhalten soll.');
+$GLOBALS['TL_LANG']['tl_setttings']['rim_activate_mailtemplate_default']    = array('Default-Aktivierungsmail', 'Wählen Sie hier das Default-Template für die Aktivierungsmail aus. Im Template sind alle Standard Insertags verfügbar. Die Eigenschaften des Benutzers sind in den rim:: Insert Tags verfügbar (siehe Hilswizard). ');
+$GLOBALS['TL_LANG']['tl_setttings']['rim_deactivate_mailtemplate_default']  = array('Default-Deaktivierungsmail', 'Wählen Sie hier das Default-Template für die Deaktivierungsmail aus. Im Template sind alle Standard Inserttags verfügbar. Die Eigenschaften des Benutzers sind in den rim:: Insert Tags verfügbar (siehe Hilswizard). ');
