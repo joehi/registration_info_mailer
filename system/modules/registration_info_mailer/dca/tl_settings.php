@@ -21,16 +21,14 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['rim_activate_mailtemplate_default']
     'label'             => &$GLOBALS['TL_LANG']['tl_settings']['rim_activate_mailtemplate_default'],
     'exclude'           => true,
     'inputType'         => 'select',
-    'options_callback'  => array('RimHelper', 'getMailTeplates'),
-    'explanation'       => 'RimHelper',
-    'eval'              => array('helpwizard'=>true, 'tl_class'=>'w50')
+    'options_callback'  => array('RimHelper', 'getAccountActivationTemplates'),
+    'eval'              => array('tl_class'=>'w50')
 );
 
 $GLOBALS['TL_DCA']['tl_settings']['fields']['rim_deactivate_mailtemplate_default'] = array(
     'label'             => &$GLOBALS['TL_LANG']['tl_settings']['rim_deactivate_mailtemplate_default'],
     'exclude'           => true,
     'inputType'         => 'select',
-    'options_callback'  => array('RimHelper', 'getMailTeplates'),
-    'explanation'       => 'RimHelper',
-    'eval'              => array('helpwizard'=>true, 'tl_class'=>'w50')
+    'options_callback'  => array('RimHelper', 'getAccountDeactivationTemplates'),
+    'eval'              => array('tl_class'=>'w50')
 );

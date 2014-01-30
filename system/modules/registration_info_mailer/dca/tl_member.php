@@ -15,6 +15,8 @@ $GLOBALS['TL_DCA']['tl_member']['config']['onsubmit_callback'][] = array('regist
 /**
  * Fields
  */
+$GLOBALS['TL_DCA']['tl_member']['fields']['login']['eval']['tl_class'] .= ' clr';
+
 $GLOBALS['TL_DCA']['tl_member']['fields']['rim_send_mail'] = array(
     'label'             => &$GLOBALS['TL_LANG']['tl_member']['rim_send_mail'],
     'exclude'           => true,
@@ -27,9 +29,8 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['rim_activate_mailtemplate'] = array(
     'exclude'           => true,
     'inputType'         => 'select',
     'options_callback'  => array('RimHelper', 'getAccountActivationTemplates'),
-    'explanation'       => 'RimHelper',
     'load_callback'     => array(array('RimHelper', 'setDefaultTemplate')),
-    'eval'              => array('helpwizard'=>true, 'tl_class'=>'w50')
+    'eval'              => array('tl_class'=>'w50')
 );
 
 $GLOBALS['TL_DCA']['tl_member']['fields']['rim_deactivate_mailtemplate'] = array(
@@ -37,7 +38,6 @@ $GLOBALS['TL_DCA']['tl_member']['fields']['rim_deactivate_mailtemplate'] = array
     'exclude'           => true,
     'inputType'         => 'select',
     'options_callback'  => array('RimHelper', 'getAccountDeactivationTemplates'),
-    'explanation'       => 'RimHelper',
     'load_callback'     => array(array('RimHelper', 'setDefaultTemplate')),
-    'eval'              => array('helpwizard'=>true, 'tl_class'=>'w50')
+    'eval'              => array('tl_class'=>'w50')
 );

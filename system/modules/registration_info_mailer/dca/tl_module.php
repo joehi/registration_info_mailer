@@ -15,7 +15,7 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['registration'] = str_replace('{emai
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'rim_active';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'rim_act_active';
 
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['rim_active'] = 'rim_mailtemplate,rim_do_syslog,rim_mailto';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['rim_active'] = 'rim_mailtemplate,rim_do_syslog';
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['rim_act_active'] = 'rim_act_mailtemplate,rim_act_do_syslog,rim_act_mailto';
 
 /**
@@ -46,7 +46,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailtemplate'] = array
     'label'             => &$GLOBALS['TL_LANG']['tl_module']['rim_mailtemplate'],
     'exclude'           => true,
     'inputType'         => 'select',
-    'options_callback'  => array('RimHelper', 'getMailTeplates'),
+    'options_callback'  => array('RimHelper', 'getMemberRegistrationTemplates'),
     'explanation'       => 'RimHelper',
     'eval'              => array('helpwizard'=>true, 'tl_class'=>'w50')
 );
@@ -59,16 +59,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_do_syslog'] = array
     'eval'              => array ('tl_class'=>'w50 m12')
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailto'] = array
-(
-    'label'             => &$GLOBALS['TL_LANG']['tl_module']['rim_mailto'],
-    'exclude'           => true,
-    'inputType'         => 'textarea',
-    'save_callback'     => array(array('RimHelper', 'save_sorter')),
-    'load_callback'     => array(array('RimHelper', 'load_sorter')),
-    'eval'              => array ('style'=>'height:60px;', 'tl_class'=>'clr', 'mandatory'=>true)
-);
-
 
 /**
  * Add all fields for the activation notification
@@ -78,7 +68,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_mailtemplate'] = array
     'label'             => &$GLOBALS['TL_LANG']['tl_module']['rim_act_mailtemplate'],
     'exclude'           => true,
     'inputType'         => 'select',
-    'options_callback'  => array('RimHelper', 'getMailTeplates'),
+    'options_callback'  => array('RimHelper', 'getMemberActivationTemplates'),
     'explanation'       => 'RimHelper',
     'eval'              => array('helpwizard'=>true, 'tl_class'=>'w50')
 );

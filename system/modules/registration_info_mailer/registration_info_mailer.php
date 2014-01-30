@@ -57,7 +57,7 @@ class registration_info_mailer extends Controller
             self::$arrUserOptions = $arrData;
 
             // check if we have all needet data
-            if (!strlen($objModule->rim_mailto) || !strlen($objModule->rim_mailtemplate))
+            if (!strlen($objModule->rim_mailtemplate))
             {
                 $this->log('RIM: failed to send the registration mail. The module needs more email informations. Please check the module configuration.', 'registration_info_mailer sendRegistrationMail()', 'ERROR');
                 return;

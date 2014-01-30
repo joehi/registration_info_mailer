@@ -62,7 +62,7 @@ class RimHelper extends Backend
         
         while($objTemplates->next())
         {
-            $arrReturn[$objTemplates->category][$objTemplates->id] = $objTemplates->title;
+            $arrReturn[$objTemplates->id] = $objTemplates->title;
         }
         
         return $arrReturn;
