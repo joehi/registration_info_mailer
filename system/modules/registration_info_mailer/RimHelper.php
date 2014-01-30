@@ -92,7 +92,7 @@ class RimHelper extends Backend
     /**
      * helper function to uncheck the checkbox
      */
-    public function reset_rim_send_mail($strValue) 
+    public function resetSendCheckbox($strValue) 
     {
         $strValue = 0;
         return $strValue;
