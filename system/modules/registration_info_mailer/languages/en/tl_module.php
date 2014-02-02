@@ -22,7 +22,6 @@ $GLOBALS['TL_LANG']['tl_module']['rim_do_syslog']           = array('Activate lo
 $GLOBALS['TL_LANG']['tl_module']['rim_act_active']          = array('Activate activity message', 'Click here if you want to activate sending of activity information.');
 $GLOBALS['TL_LANG']['tl_module']['rim_act_mailtemplate']    = array('Mailtemplate', 'please choose the template for this mail. There are all standard-insert-tags available. All user attributes are avalible via rim:: insert tage. See the help icon for al list and examples.');
 $GLOBALS['TL_LANG']['tl_module']['rim_act_do_syslog']       = array('Activate logging', 'Activate loggs all mails to syslog.');
-$GLOBALS['TL_LANG']['tl_module']['rim_act_mailto']          = array('Recipient', 'Place a list of recipients here. eg: office@foobar.com, private@foobar.com');
 
 /*
  * legend

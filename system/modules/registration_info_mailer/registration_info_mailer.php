@@ -96,7 +96,7 @@ class registration_info_mailer extends Controller
             $this->getUserOptions($objUser);
             
             // check if we have all needet data
-            if (!strlen($objModule->rim_act_mailto) || !strlen($objModule->rim_act_mailtemplate))
+            if (!strlen($objModule->rim_act_mailtemplate))
             {
                 $this->log('RIM: failed to send the activation mail. The module needs more email informations. Please check the module configuration.', 'registration_info_mailer sendActivationMail()', 'ERROR');
                 return;
