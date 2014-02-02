@@ -54,7 +54,8 @@ class registration_info_mailer extends Controller
         if ($objModule->rim_active == 1)
         {
             // store the registration data
-            self::$arrUserOptions = $arrData;
+            self::$arrUserOptions       = $arrData;
+			self::$arrUserOptions['id'] = $intId;
 
             // check if we have all needet data
             if (!strlen($objModule->rim_mailtemplate))
