@@ -6,8 +6,14 @@
 	"license":"LGPL-3.0+",
 	"authors":[
 		{
+			"name":"Andreas Isaak",
+			"email":"isaak@men-at-work.de",
+			"homepage":"http://www.men-at-work.de",
+			"role":"Developer"
+		},
+		{
 			"name":"David Maack",
-			"email":"david.maack@arcor.de",
+			"email":"maack@men-at-work.de",
 			"homepage":"http://www.men-at-work.de",
 			"role":"Developer"
 		},
@@ -18,9 +24,15 @@
 			"role":"Developer"
 		}
 	],
+	"support":{
+		"email":"contao@men-at-work.de",
+		"issues":"https://github.com/menatwork-ia/registration_info_mailer/issues",
+		"irc":"irc://irc.freenode.org/contao.dev",
+		"source":"https://github.com/menatwork-ia/registration_info_mailer"
+	},
 	"require":{
 		"php":">=5.3",
-		"contao/core":">=2.11,<4",
+		"contao/core":">3.2,<4",
 		"contao-community-alliance/composer-installer":"*",
 		"terminal42/notification_center":"~1"
 	},

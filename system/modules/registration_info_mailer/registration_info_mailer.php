@@ -3,21 +3,12 @@
 /**
  * Contao Open Source CMS
  *
- * @copyright  Leo Unglaub 2011, MEN AT WORK 2014
+ * @copyright  MEN AT WORK 2014 
  * @package    registration_info_mailer
  * @license    GNU/LGPL 
  * @filesource
  */
 
-/**
- * Class registration_info_mailer
- *
- * @copyright   Leo Unglaub 2011, MEN AT WORK 2014
- * @author      Leo Unglaub <leo@leo-unglaub.net>
- * @author      David Maack <david.maack@arcor.de>
- * @package     registration_info_mailer
- * @license     LGPL
- */
 class registration_info_mailer extends Controller
 {
     /**

@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * @copyright  Leo Unglaub 2011, MEN AT WORK 2014 
+ * @copyright  MEN AT WORK 2014 
  * @package    registration_info_mailer
  * @license    GNU/LGPL 
  * @filesource
@@ -56,7 +56,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_do_syslog'] = array
     'label'             => &$GLOBALS['TL_LANG']['tl_module']['rim_do_syslog'],
     'exclude'           => true,
     'inputType'         => 'checkbox',
-    'eval'              => array ('tl_class'=>'w50 m12')
+    'eval'              => array('tl_class'=>'w50 m12')
 );
 
 
@@ -78,5 +78,5 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_do_syslog'] = array
     'label'             => &$GLOBALS['TL_LANG']['tl_module']['rim_act_do_syslog'],
     'exclude'           => true,
     'inputType'         => 'checkbox',
-    'eval'              => array ('tl_class'=>'w50 m12')
+    'eval'              => array('tl_class'=>'w50 m12')
 );

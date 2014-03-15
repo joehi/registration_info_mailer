@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * @copyright  Leo Unglaub 2011, MEN AT WORK 2014 
+ * @copyright  MEN AT WORK 2014 
  * @package    registration_info_mailer
  * @license    GNU/LGPL 
  * @filesource
