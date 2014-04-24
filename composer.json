@@ -34,7 +34,7 @@
 		"php":">=5.3",
 		"contao/core":">3.2,<4",
 		"contao-community-alliance/composer-installer":"*",
-		"terminal42/notification_center":"dev-develop"
+		"terminal42/notification_center":">=1.0,<1.2"
 	},
 	"autoload":{
 		"classmap":["system/"]
