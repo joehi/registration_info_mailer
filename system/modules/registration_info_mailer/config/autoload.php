@@ -16,6 +16,6 @@
  */
 ClassLoader::addClasses(array
 (
-	'registration_info_mailer' => 'system/modules/registration_info_mailer/registration_info_mailer.php',
-	'RimHelper'                => 'system/modules/registration_info_mailer/RimHelper.php',
+    'RegistrationInfoMailer\Handler' => 'system/modules/registration_info_mailer/src/Handler.php',
+    'RegistrationInfoMailer\Helper'  => 'system/modules/registration_info_mailer/src/Helper.php',
 ));
