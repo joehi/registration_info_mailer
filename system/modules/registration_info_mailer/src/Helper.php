@@ -16,7 +16,7 @@ namespace RegistrationInfoMailer;
  *
  * @package RegistrationInfoMailer
  */
-class RimHelper
+class Helper
 {
     /**
      * Clean the input, remove empty entries, trim the values, remove doublicates.
@@ -86,7 +86,6 @@ class RimHelper
         return $arrReturn;
     }
 
-
     public function getMemberActivationTemplates($strType)
     {
         return $this->getMailTemplates('member_activation_mail');
@@ -95,6 +94,11 @@ class RimHelper
     public function getMemberRegistrationTemplates($strType)
     {
         return $this->getMailTemplates('member_registration_mail');
+    }
+
+    public function getMemberChangeTemplates($strType)
+    {
+        return $this->getMailTemplates('account_change_mail');
     }
 
     public function getAccountActivationTemplates($strType)

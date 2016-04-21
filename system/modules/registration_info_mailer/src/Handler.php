@@ -51,7 +51,7 @@ class Handler
             if (!strlen($objModule->rim_mailtemplate)) {
                 \Controller::log(
                     'RIM: failed to send the registration mail. The module needs more email information. Please check the module configuration.',
-                    'registration_info_mailer sendRegistrationMail()',
+                    __CLASS__ . '::' . __FUNCTION__,
                     'ERROR'
                 );
 
@@ -68,12 +68,60 @@ class Handler
             // Log to tl_log if the user set the option.
             if ($objModule->rim_do_syslog == 1) {
                 \Controller::log('RIM: a registration info mail has been send. Check your email.log for more information.',
-                    'registration_info_mailer sendRegistrationMail()',
+                    __CLASS__ . '::' . __FUNCTION__,
                     'GENERAL'
                 );
             }
 
             // done :) lets cleanup and get some food, maybe a big pizza or a nice tasty burger.
+            unset($objMail);
+        }
+    }
+
+    /**
+     * Send an email if a user account is activated.
+     *
+     * @param \FrontendUser $objUser   The current user object.
+     *
+     * @param array         $formData  All current form data.
+     *
+     * @param \Module       $objModule The module and his current settings.
+     *
+     * @return void
+     */
+    public function sendChangeMail($objUser, $formData, $objModule)
+    {
+        // Check if the registration mail should be send.
+        if ($objModule->rim_change_active == 1) {
+            $this->getUserOptions($objUser);
+
+            // Check if we have all needed data.
+            if (!strlen($objModule->rim_change_mailtemplate)) {
+                \Controller::log(
+                    'RIM: failed to send the change mail. The module needs more email information. Please check the module configuration.',
+                    __CLASS__ . '::' . __FUNCTION__,
+                    'ERROR'
+                );
+
+                return;
+            }
+
+            /** @var Notification $objNotification */
+            $objNotification = Notification::findByPk($objModule->rim_change_mailtemplate);
+            if (null !== $objNotification) {
+                $arrTokens = self::$arrUserOptions;
+                $objNotification->send($arrTokens, $objUser->language); // Language is optional
+            }
+
+            // Log to tl_log if the user set the option.
+            if ($objModule->rim_change_do_syslog == 1) {
+                \Controller::log(
+                    'RIM: An change info mail for the user ' . $objUser->id . ' has been send.',
+                    __CLASS__ . '::' . __FUNCTION__,
+                    'GENERAL'
+                );
+            }
+
             unset($objMail);
         }
     }
@@ -98,7 +146,7 @@ class Handler
             if (!strlen($objModule->rim_act_mailtemplate)) {
                 \Controller::log(
                     'RIM: failed to send the activation mail. The module needs more email informations. Please check the module configuration.',
-                    'registration_info_mailer sendActivationMail()',
+                    __CLASS__ . '::' . __FUNCTION__,
                     'ERROR'
                 );
 
@@ -116,7 +164,7 @@ class Handler
             if ($objModule->rim_act_do_syslog == 1) {
                 \Controller::log(
                     'RIM: An activation info mail for the user ' . $objUser->id . ' has been send.',
-                    'registration_info_mailer sendActivationMail()',
+                    __CLASS__ . '::' . __FUNCTION__,
                     'GENERAL'
                 );
             }
@@ -163,7 +211,7 @@ class Handler
             $this->getUserOptions($objUser);
 
             /** @var Notification $objNotification */
-            $intTemplateId = ($objUser->login) ? $objUser->rim_activate_mailtemplate : $objUser->rim_deactivate_mailtemplate;
+            $intTemplateId   = ($objUser->login) ? $objUser->rim_activate_mailtemplate : $objUser->rim_deactivate_mailtemplate;
             $objNotification = Notification::findByPk($intTemplateId);
             if (null !== $objNotification) {
                 $arrTokens = self::$arrUserOptions;
@@ -226,5 +274,7 @@ class Handler
                 self::$arrUserOptions[$v] = $objUser->$v;
             }
         }
+
+        var_dump(self::$arrUserOptions);
     }
 }
