@@ -9,6 +9,9 @@
  * @filesource
  */
 
+/**
+ * Registration module.
+ */
 $GLOBALS['TL_DCA']['tl_module']['palettes']['registration'] = str_replace(
     '{email_legend:hide}',
     '{rim_legend:hide},rim_active,rim_act_active;{email_legend:hide}',
@@ -21,6 +24,31 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'rim_act_active'
 
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['rim_active']     = 'rim_mailtemplate,rim_do_syslog';
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['rim_act_active'] = 'rim_act_mailtemplate,rim_act_do_syslog';
+
+/**
+ * Data change module.
+ */
+$parts = trimsplit(';', $GLOBALS['TL_DCA']['tl_module']['palettes']['personalData']);
+foreach ($parts as $key => $part) {
+    if (stripos($part, '{template_legend') !== false) {
+        array_insert($parts, $key - 1, array('{rim_legend:hide},rim_change_active'));
+        break;
+    }
+}
+$GLOBALS['TL_DCA']['tl_module']['palettes']['personalData'] = implode(';', $parts);
+
+$parts = trimsplit(';', $GLOBALS['TL_DCA']['tl_module']['palettes']['lostPassword']);
+foreach ($parts as $key => $part) {
+    if (stripos($part, '{template_legend') !== false) {
+        array_insert($parts, $key - 1, array('{rim_legend:hide},rim_change_active'));
+        break;
+    }
+}
+$GLOBALS['TL_DCA']['tl_module']['palettes']['lostPassword'] = implode(';', $parts);
+
+// Register the sub palettes, don't forget the palettes ;).
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][]       = 'rim_change_active';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['rim_change_active'] = 'rim_change_mailtemplate,rim_change_do_syslog';
 
 /**
  * Add all global rim_ fields
@@ -36,6 +64,14 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_active'] = array
 $GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_active'] = array
 (
     'label'     => &$GLOBALS['TL_LANG']['tl_module']['rim_act_active'],
+    'exclude'   => true,
+    'inputType' => 'checkbox',
+    'eval'      => array('submitOnChange' => true, 'tl_style' => 'clr')
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['rim_change_active'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_module']['rim_change_active'],
     'exclude'   => true,
     'inputType' => 'checkbox',
     'eval'      => array('submitOnChange' => true, 'tl_style' => 'clr')
@@ -57,6 +93,27 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_mailtemplate'] = array
 $GLOBALS['TL_DCA']['tl_module']['fields']['rim_do_syslog'] = array
 (
     'label'     => &$GLOBALS['TL_LANG']['tl_module']['rim_do_syslog'],
+    'exclude'   => true,
+    'inputType' => 'checkbox',
+    'eval'      => array('tl_class' => 'w50 m12')
+);
+
+/**
+ * Add all fields for the change notification
+ */
+$GLOBALS['TL_DCA']['tl_module']['fields']['rim_change_mailtemplate'] = array
+(
+    'label'            => &$GLOBALS['TL_LANG']['tl_module']['rim_change_mailtemplate'],
+    'exclude'          => true,
+    'inputType'        => 'select',
+    'options_callback' => array('RegistrationInfoMailer\Helper', 'getMemberChangeTemplates'),
+    'explanation'      => 'RimHelper',
+    'eval'             => array('helpwizard' => true, 'tl_class' => 'w50')
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['rim_change_do_syslog'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_module']['rim_change_do_syslog'],
     'exclude'   => true,
     'inputType' => 'checkbox',
     'eval'      => array('tl_class' => 'w50 m12')

@@ -16,7 +16,7 @@ $GLOBALS['TL_DCA']['tl_member']['palettes']['default'] = str_replace(
     $GLOBALS['TL_DCA']['tl_member']['palettes']['default']
 );
 
-$GLOBALS['TL_DCA']['tl_member']['config']['onsubmit_callback'][] = array('registration_info_mailer', 'sendMemberMail');
+$GLOBALS['TL_DCA']['tl_member']['config']['onsubmit_callback'][] = array('RegistrationInfoMailer\Handler', 'sendMemberMail');
 
 /**
  * Fields
