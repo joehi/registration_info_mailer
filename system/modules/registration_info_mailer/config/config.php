@@ -12,10 +12,12 @@
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['createNewUser'][]     = array('RegistrationInfoMailer\Handler', 'sendRegistrationMail');
-$GLOBALS['TL_HOOKS']['activateAccount'][]   = array('RegistrationInfoMailer\Handler', 'sendActivationMail');
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('RegistrationInfoMailer\Handler', 'replaceRimInsertTags');
-$GLOBALS['TL_HOOKS']['loadLanguageFile'][]  = array('RegistrationInfoMailer\Handler', 'generateHelpWizard');
+$GLOBALS['TL_HOOKS']['createNewUser'][]      = array('RegistrationInfoMailer\Handler', 'sendRegistrationMail');
+$GLOBALS['TL_HOOKS']['updatePersonalData'][] = array('RegistrationInfoMailer\Handler', 'sendChangeMail');
+$GLOBALS['TL_HOOKS']['setNewPassword'][]     = array('RegistrationInfoMailer\Handler', 'sendChangeMail');
+$GLOBALS['TL_HOOKS']['activateAccount'][]    = array('RegistrationInfoMailer\Handler', 'sendActivationMail');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][]  = array('RegistrationInfoMailer\Handler', 'replaceRimInsertTags');
+$GLOBALS['TL_HOOKS']['loadLanguageFile'][]   = array('RegistrationInfoMailer\Handler', 'generateHelpWizard');
 
 // config.php
 $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['rim'] = array
@@ -38,6 +40,15 @@ $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE']['rim'] = array
             // Valid tokens
             'email' // The email address of the recipient
         )
+    ),
+    'account_change_mail'       => array
+    (
+        // Field in tl_nc_language
+        'recipients' => array
+        (
+            // Valid tokens
+            'email' // The email address of the recipient
+        ),
     ),
     'account_activation_mail'   => array
     (
