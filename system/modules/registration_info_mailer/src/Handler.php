@@ -274,7 +274,5 @@ class Handler
                 self::$arrUserOptions[$v] = $objUser->$v;
             }
         }
-
-        var_dump(self::$arrUserOptions);
     }
 }
