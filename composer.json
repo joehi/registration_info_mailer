@@ -3,7 +3,7 @@
 	"description":"Send a customized email if an new user register or activate an account or the login flag of an account has changed.",
 	"keywords":["contao", "registration", "registration_info_mailer"],
 	"type":"contao-module",
-	"license":"LGPL-3.0+",
+	"license":"LGPL-3.0-or-later",
 	"authors":[
 		{
 			"name":"Andreas Isaak",
@@ -32,9 +32,9 @@
 	},
 	"require":{
 		"php":">=5.3",
-		"contao/core":">3.2,<4",
-		"contao-community-alliance/composer-installer":"*",
-		"terminal42/notification_center":"1.*"
+		"contao/core-bundle":"^3.2 || ^4.4",
+		"contao-community-alliance/composer-plugin":"^2.4 || ^3.0",
+		"terminal42/notification_center":"^1.0"
 	},
 	"autoload":{
 		"classmap":["system/"]
