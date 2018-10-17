@@ -58,7 +58,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_active'] = array
     'label'     => &$GLOBALS['TL_LANG']['tl_module']['rim_active'],
     'exclude'   => true,
     'inputType' => 'checkbox',
-    'eval'      => array('submitOnChange' => true, 'tl_style' => 'clr')
+    'eval'      => array('submitOnChange' => true, 'tl_class' => 'clr')
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_active'] = array
@@ -66,7 +66,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_act_active'] = array
     'label'     => &$GLOBALS['TL_LANG']['tl_module']['rim_act_active'],
     'exclude'   => true,
     'inputType' => 'checkbox',
-    'eval'      => array('submitOnChange' => true, 'tl_style' => 'clr')
+    'eval'      => array('submitOnChange' => true, 'tl_class' => 'clr')
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['rim_change_active'] = array
@@ -74,7 +74,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['rim_change_active'] = array
     'label'     => &$GLOBALS['TL_LANG']['tl_module']['rim_change_active'],
     'exclude'   => true,
     'inputType' => 'checkbox',
-    'eval'      => array('submitOnChange' => true, 'tl_style' => 'clr')
+    'eval'      => array('submitOnChange' => true, 'tl_class' => 'clr')
 );
 
 /**
