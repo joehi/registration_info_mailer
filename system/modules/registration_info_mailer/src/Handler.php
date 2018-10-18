@@ -89,10 +89,10 @@ class Handler
      *
      * @return void
      */
-    public function sendChangeMail($objUser, $formData, $objModule)
+    public function sendChangeMail($objUser, $formData, $objModule = null)
     {
         // Check if the registration mail should be send.
-        if ($objModule->rim_change_active == 1) {
+        if (null !== $objModule && $objModule->rim_change_active == 1) {
             $this->getUserOptions($objUser);
 
             // Check if we have all needed data.
