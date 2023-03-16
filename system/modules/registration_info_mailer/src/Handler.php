@@ -183,18 +183,17 @@ class Handler
      */
     public function replaceRimInsertTags($strTag)
     {
-        if (count(self::$arrUserOptions) === 0) {
+        $arrTemp = explode('::', $strTag);
+
+        if ('rim' !== $arrTemp[0]) {
             return false;
         }
 
-        $arrTemp = explode('::', $strTag);
-
-        // check if it's our rim insert tag
-        if ($arrTemp[0] == 'rim' && isset(self::$arrUserOptions[$arrTemp[1]])) {
-            return self::$arrUserOptions[$arrTemp[1]];
+        if (empty($arrTemp[1])) {
+            return '';
         }
 
-        return false;
+        return self::$arrUserOptions[$arrTemp[1]] ?? '';
     }
 
     /**

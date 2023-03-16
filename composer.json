@@ -31,7 +31,7 @@
 		"source":"https://github.com/menatwork-ia/registration_info_mailer"
 	},
 	"require":{
-		"php":">=5.3",
+		"php":">=7.0",
 		"contao/core-bundle":"^3.2 || ^4.4",
 		"contao-community-alliance/composer-plugin":"^2.4 || ^3.0",
 		"terminal42/notification_center":"^1.0"
