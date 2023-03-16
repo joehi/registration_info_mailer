@@ -12,7 +12,7 @@ registration_info_mailer erlaubt es dem Webmaster benutzerdefinierte E-Mails an 
 * Frei wählbaren Mailtext
 * RIM:: Insert Tags mit allen Werte des Registrierungsformulars
 
-registration_info_mailer allow the webmaster to send customized emails to a group of people if a new member register on the website or if a new member account is activated. You can define this options for every email:
+registration_info_mailer allows the webmaster to send customized emails to a group of people if a new member registers on the website or if a new member account is activated. You can define these options for every email:
 
 * sender name
 * sender address
@@ -21,6 +21,6 @@ registration_info_mailer allow the webmaster to send customized emails to a grou
 * one or more CC recipients
 * one or more BCC recipients
 * mailcontent
-* RIM:: Insert Tags which contains all values from the registration form
+* RIM:: Insert Tags which contain all values from the registration form
 
 Vielen Dank an leo-unglaub für die tolle Vorarbeit in der Version 1 und Version 2!
